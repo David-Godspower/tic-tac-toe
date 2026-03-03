@@ -3,43 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
-     <link rel="stylesheet" href="styles.css" />
+    <title>Neon Tic Tac Toe Ultimate</title>
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <main>
-        <h1>Tic Tac Toe</h1>
-        <p>Welcome to Tic Tac Toe Game</p>
-        <div class="msg-container hide">
-            <p id="msg">Winner</p>
-            <button id="new-btn">New Game</button>
+        <h1 class="glow-text">Tic Tac Toe <span class="badge">PRO</span></h1>
+        
+        <div class="controls-panel">
+            <div class="control-group">
+                <button id="mode-btn" class="mode-toggle">
+                    <i class="fas fa-robot"></i> <span>Vs AI</span>
+                </button>
+            </div>
+
+            <div class="control-group" id="difficulty-group">
+                <label for="difficulty">Level:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard" selected>Impossible</option>
+                </select>
+            </div>
+
+            <button id="reset-score-btn" title="Reset Scoreboard">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+            <button id="sound-btn" title="Toggle Sound">
+    <i class="fas fa-volume-up"></i>
+</button>
         </div>
-        <div class="controls" style="margin-bottom: 20px;">
-    <label for="difficulty">Difficulty: </label>
-    <select id="difficulty">
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard" selected>Hard (Unbeatable)</option>
-    </select>
-</div>
-        <div class="container">
-            <div class="game">
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
-                <button class="box"></button>
+
+        <div class="scoreboard">
+            <div class="score-box x-score">
+                <span id="score-x">0</span>
+                <p>Player (X)</p>
+            </div>
+            <div class="score-box tie-score">
+                <span id="score-tie">0</span>
+                <p>Draws</p>
+            </div>
+            <div class="score-box o-score">
+                <span id="score-o">0</span>
+                <p>Player (O)</p>
             </div>
         </div>
-        <button id="reset">Reset Game</button>
+
+        <div id="turn-indicator">Your Turn</div>
+
+        <div class="container">
+            <div class="game">
+                <button class="box" data-index="0"></button>
+                <button class="box" data-index="1"></button>
+                <button class="box" data-index="2"></button>
+                <button class="box" data-index="3"></button>
+                <button class="box" data-index="4"></button>
+                <button class="box" data-index="5"></button>
+                <button class="box" data-index="6"></button>
+                <button class="box" data-index="7"></button>
+                <button class="box" data-index="8"></button>
+            </div>
+        </div>
+
+        <button id="reset"><i class="fas fa-redo"></i> Restart Game</button>
+
+        <div class="msg-container hide">
+            <h2 id="msg">Winner!</h2>
+            <button id="new-btn">Play Again</button>
+        </div>
     </main>
-
-
 
 
     <footer>
